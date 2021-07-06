@@ -1,0 +1,330 @@
+@import 'variables';
+
+/* 
+    ============
+    || Mixins ||
+    ===========
+*/
+
+/* The burger mixin */
+@mixin burger-ctm {
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+}
+
+@mixin centerElmt {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin hero-button {
+    border: 2px solid $white;
+    border-radius: 60.25rem;
+    background-color: transparent;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: $ubuntu-fnt;
+    padding: 1rem 2rem;
+}
+
+/* 
+    ================
+   || Hero header || 
+   ================ 
+*/
+
+.hero-header {
+    padding: 2rem 0;
+    background: linear-gradient($vry-light-red-gr, $light-red-gr);
+    background-repeat: no-repeat;
+    z-index: 10;
+    width: 100vw;
+    min-height: 68vh;
+    position: relative;
+    border-radius: 0 0 0 25%;
+    overflow: hidden;
+    
+    /* 
+        ===============
+        | The navbar ||
+        ============== 
+    */
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        margin: 0 auto;
+        padding: 1rem 0;
+        z-index: 30;
+
+        /* Designing the burger */
+        .burger-header {
+            position: relative;
+            @include burger-ctm;
+        }
+
+        .burger-center {
+            margin: .45rem 0;
+        }
+    
+        /* the desktop menu styles */
+        .desktop-menu {
+            display: none;
+            flex: 1;
+            align-items: center;
+            justify-content: space-between;
+        
+            /* The dropped menu style with elements included */
+            .dropped-menu {
+                display: flex;
+                margin: 0 0 0 4rem;
+                justify-content: space-between;
+                width: 50%;
+                max-width: 29.8rem;
+        
+                /* the dropped words in the navbar */
+                .drop-div {
+                    position: relative;
+                }
+        
+                /* the focus button to show the list */
+                .drop-btn {
+                    background-color: transparent;
+                    color: $grayish-blue;
+                    font-weight: 700;
+                    border: none;
+        
+                    &:hover {
+                        color: $white;
+                    }
+        
+                    /* this is the drop icon */
+                    i {
+                        font-size: 1em;
+                        margin: 0 0 0 .5rem;
+                        color: inherit;
+                    }
+                }
+        
+    
+                /* each ul element on each div */
+                .drop-list {
+                    position: absolute;
+                    top: 1.7rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    background-color: $white;
+                    border-radius: 5%;
+                    padding: 1rem;
+                    width: 10rem;
+                    height: 10rem;
+                    font-weight: 600;
+                    color: $vry-dark-blue;
+                    opacity: 0;
+                    pointer-events: none;
+                    transform: translate(0, 10px);
+                    transition: all 0.5s;
+                    z-index: 20;
+                }
+
+                .show-list {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+        
+            /* the login and sign up buttons */
+            .btns button {
+                border: none;
+                border-radius: 999px;
+                background-color: transparent;
+                color: $grayish-blue;
+                font-weight: 700;
+                padding: 1em 2.5em;
+        
+                &:hover {
+                    background-color: $white;
+                    color: $light-red;
+                }
+            }
+        }
+    }
+
+
+    .bg-figures {
+        position: absolute;
+        width: 150%;
+        @include centerElmt();
+        z-index: -5;
+    }
+    
+    
+    .hero-info {
+        position: absolute;
+        width: 90%;
+        @include centerElmt();
+        transform: translate(-50%, -40%);
+        text-align: center;
+        font-family: $overpass-fnt;
+        color: $white;
+
+        h2 {
+            font-size: 2.2rem;
+            margin: 0 0 2.5rem 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 0 0 2.5rem;
+        }
+
+        /* button styling (start and learn more)*/
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            width: 85%;
+            max-width: 500px;
+            margin: 1rem auto;
+
+            button {
+                @include hero-button();
+
+                &:hover {
+                    background-color: $white;
+                    color: $vry-light-red;
+                }
+            }
+        }
+    }
+}
+
+
+/* for now i'll let it like none */
+.mobile-navbar {
+    position: absolute;
+    display: flex;
+    padding: 1.5em 0;
+    width: 85%;
+    max-width: 32.7rem;
+    min-height: 70vh;
+    box-shadow: 0 5px 1em 0;
+    background-color: $white;                                                                                                           
+    border-radius: 2%;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: $overpass-fnt;
+    transform: translate(100%, -50%);
+    transition: transform 1s ease;
+    
+    
+    .accordion-zone {
+        width: 80%;
+        text-align: center;
+        
+        .accordion-btn {
+            border: none;
+            background-color: transparent;
+            font-weight: 500;
+            font-size: 1.35rem;
+            color: $vry-dark-blck-blue;
+            
+        }
+        
+        .drop-list {
+            width: 100%;
+            color: $vry-dark-gray-blue;
+            background-color: $grayish-blue;
+            border-radius: 2%;
+            max-height: 0;
+            overflow: hidden;
+            transition: all .7s;
+            opacity: 0;
+
+            li {
+                margin: 1rem 0;
+                opacity: 0;
+                transition: all .7s ease;
+            }
+
+        }
+
+    }
+    
+    .accordion-zone.active .drop-list {
+        max-height: 200px;
+        opacity: 1; 
+    }
+    
+    .accordion-zone.active .drop-list li {
+        opacity: 1;
+    }
+
+    .btn-group {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        border-top: 1px solid #dfdfdf;
+        
+        button {
+            width: 55%;
+            text-align: center;
+            margin: .8rem 0 0 0;
+            @include hero-button();
+    
+            &:hover {
+                background-color: $vry-light-red;
+                color: $white;
+            }
+        }
+    }
+
+}
+
+
+
+.show-mobile-nav {
+    display: flex;
+    transform: translate(-50%, -50%);
+}
+
+/* 
+    ==================
+   || Media queries || 
+   ================== 
+*/
+
+
+/* Desktop version */
+@media only screen and (min-width: $desktop-query) {
+    .burg-cont, .mobile-navbar {
+        display: none;
+    }
+
+    .hero-header {
+        border-radius: 0 0 0 15%;
+
+        nav {
+            .desktop-menu { display: flex; }
+        }
+
+        .hero-info {
+            h2 { font-size: 3rem; }
+            p { font-size: 1.5rem; }
+        }
+    }
+    
+    
+}

@@ -1,0 +1,32 @@
+@import 'components/variables';
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    text-decoration: none;
+    font-family: $ubuntu-fnt;
+}
+
+body {
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    a {
+        color: inherit;
+    }
+    
+    ul, li {
+        list-style: none;
+        padding: 0;
+    }
+}
+
+@import 'components/header';
+@import 'components/info-section';
+
+
+/* modules */
+

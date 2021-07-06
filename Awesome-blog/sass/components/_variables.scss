@@ -1,0 +1,52 @@
+/* layout Variables */
+
+/* 
+   ======================
+  ||media query units ||
+  =====================
+*/
+
+$mobile-query: 23.43rem;
+$desktop-query: 64rem;
+
+/* 
+    ===========
+   || Colors || 
+   ===========
+*/
+
+/* primary colors */
+
+$light-red: rgb(255, 82, 93); /* CTA text */
+$vry-light-red: rgb(255, 122, 133); /* CTA hover background */
+$vry-dark-blue: rgb(91, 31, 46); /* Heading */
+
+/* Neutral */
+
+$white: rgb(255, 255, 255); /* text */
+$grayish-blue: rgb(200, 200, 203); /* footer text */
+$vry-dark-gray-blue: rgb(75, 88, 98); /* body copy */
+$vry-dark-blck-blue: rgb(37, 37, 45); /* footer bg-color */
+
+/* Background gradient - Intro/CTA mobile nav */
+
+$vry-light-red-gr: rgb(255, 143, 112);
+$light-red-gr: hsl(353, 100%, 62%);
+
+/* Bd gradient */
+
+$vry-dark-gray-blue: rgb(44, 45, 63);
+$vry-dark-saturated: rgb(63, 65, 100);
+
+
+/* 
+    ===============
+   || Typography || 
+   ===============
+*/
+
+$overpass-fnt: 'Overpass', sans-serif;
+$ubuntu-fnt: 'Ubuntu', sans-serif;
+
+
+
